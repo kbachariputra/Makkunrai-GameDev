@@ -6,3 +6,5 @@ Anggota Kelompok:
 - Futih Millati Addinillah
 - Hanif Ahmad Syauqi
 - Muhammad Naufal Arbanin
+
+## This is a test for the integration of Jira and Git
