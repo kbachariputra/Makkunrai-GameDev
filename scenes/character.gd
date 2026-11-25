@@ -7,13 +7,25 @@ const SPEED = 200
 
 func _physics_process(delta: float) -> void:
 	var input_direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var face_direction := Input.get_axis("ui_left", "ui_right")
 	
-	if face_direction < 0:
+	if input_direction.x < 0:
 		animated_sprite.flip_h = true
-	elif face_direction > 0:
+	elif input_direction.x > 0:
 		animated_sprite.flip_h = false
 	
 	velocity = input_direction * SPEED
-	
 	move_and_slide()
+	
+	if input_direction == Vector2.LEFT or input_direction == Vector2.RIGHT:
+		animated_sprite.play("sang_ibu_walk_sideway")
+	elif input_direction == Vector2.UP:
+		animated_sprite.play("sang_ibu_walk_up")
+	elif (input_direction.x != 1 and input_direction.x != -1) and (input_direction.y < 0 and input_direction.y != -1):
+		animated_sprite.play("sang_ibu_walk_up")
+	elif input_direction == Vector2.DOWN:
+		animated_sprite.play("sang_ibu_walk_down")
+	elif (input_direction.x != 1 and input_direction.x != -1) and (input_direction.y > 0 and input_direction.y != 1):
+		animated_sprite.play("sang_ibu_walk_down")
+	elif input_direction == Vector2.ZERO:
+		animated_sprite.play("sang_ibu_idle")
+	
