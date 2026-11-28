@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bawepsrr3mt3o"]
+
+[ext_resource type="Script" uid="uid://e06d2p1ixbi7" path="res://scenes/entities/npc.gd" id="1_4kvco"]
+[ext_resource type="Texture2D" uid="uid://co7pn8narnevm" path="res://assets/art/IdleCatt 2.png" id="1_iify0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_juam5"]
+radius = 11.0
+height = 28.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kvco"]
+atlas = ExtResource("1_iify0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n61dp"]
+atlas = ExtResource("1_iify0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdmjo"]
+atlas = ExtResource("1_iify0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kvb8"]
+atlas = ExtResource("1_iify0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jwl0"]
+atlas = ExtResource("1_iify0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rktb7"]
+atlas = ExtResource("1_iify0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud5nv"]
+atlas = ExtResource("1_iify0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_juam5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kvco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n61dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdmjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kvb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jwl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rktb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud5nv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_juam5"]
+radius = 39.051247
+
+[node name="Npc" type="StaticBody2D" unique_id=915670387]
+script = ExtResource("1_4kvco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1527178644]
+position = Vector2(0, 2.465)
+shape = SubResource("CapsuleShape2D_juam5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1833809247]
+sprite_frames = SubResource("SpriteFrames_juam5")
+
+[node name="interaction_area" type="Area2D" parent="." unique_id=364056586]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area" unique_id=1530405629]
+shape = SubResource("CircleShape2D_juam5")
+
+[node name="prompt_label" type="Label" parent="." unique_id=1700736331]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = -25.0
+offset_right = 84.0
+offset_bottom = -2.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+text = "[ Spasi ] Bicara"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]
