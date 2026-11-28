@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	velocity = input_direction * SPEED
 	move_and_slide()
 	
+#	Menentukan animasi berdasarkan arah jalan
 	if input_direction == Vector2.LEFT or input_direction == Vector2.RIGHT:
 		animated_sprite.play("sang_ibu_walk_sideway")
 	elif input_direction == Vector2.UP:
