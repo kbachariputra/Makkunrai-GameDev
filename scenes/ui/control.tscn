@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kxqwntuxkorx"]
 
-[ext_resource type="Script" uid="uid://bqwa3yfm6nvs1" path="res://scenes/ui/control.gd" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://bqwa3yfm6nvs1" path="res://scenes/ui/control.gd" id="1_yo0lp"]
 
 [sub_resource type="GDScript" id="GDScript_62e2m"]
 script/source = "extends Button
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0fbet")
+script = ExtResource("1_yo0lp")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1366660955]
 layout_mode = 1
