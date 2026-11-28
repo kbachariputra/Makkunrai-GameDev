@@ -152,4 +152,4 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_juam5")
 animation = &"sang_ibu_idle"
 autoplay = "sang_ibu_idle"
-frame_progress = 0.4342379
+frame_progress = 0.3699344
